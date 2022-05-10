@@ -1,0 +1,106 @@
+/********************************************
+* Global
+********************************************/
+html, body, p, ul, ol, li, button, input, select, textarea, .pure-g [class *= "pure-u"] {
+    font-family:  "Hoefler Text", Georgia, Times, "Times New Roman", serif;
+	color: #333;
+}
+
+#black-them {
+  background-color: #131313;
+}
+
+body#black-them,
+#black-them p,
+#black-them ul,
+#black-them ol,
+#black-them li,
+#black-them button,
+#black-them input,
+#black-them select,
+#black-them textarea,
+#black-them .pure-g [class *= "pure-u"] {
+  color: #fff;
+}
+
+#black-them blockquote {
+  background-color: #393939;
+  color: #fff;
+}
+
+#black-them .pure-table td,
+.pure-table th {
+  border: 1px solid #cbcbcb;
+}
+
+#black-them .pure-table-odd td {
+  background-color: inherit;
+}
+
+section{
+	padding: 1.2em;
+}
+
+.kdfc-section a:link, .kdfc-section a:visited, .kdfc-section a:hover, .kdfc-section a{
+    color: #1396B4;
+    text-decoration: none;
+}
+
+.kusc-section a:link, .kusc-section a:visited, .kusc-section a:hover, .kusc-section a{
+    color: #CE1616;
+    text-decoration: none;
+}
+
+h2{	
+	font-weight: bolder;
+
+}
+
+h2, h3, h4, h5, h6{
+	margin-bottom: 1em;
+}
+
+p{
+	line-height: 20px;
+}
+
+ul{
+    list-style-type: disc;
+    -webkit-padding-start: 20px;
+	margin-bottom: 1.5em;
+}
+
+li{
+	margin-bottom: 0.5em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table {
+	  border-spacing: 0.5rem;
+}
+
+td {
+	padding: 0.5rem;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 0;
+  padding: 1em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}

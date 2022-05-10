@@ -1,0 +1,122 @@
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+	<link rel="stylesheet" href="pure-min.css">
+	<link rel="stylesheet" href="jWggpg.css" type="text/css" media="screen">
+</head>
+<body id="black-them">
+	<section class="kusc-section">
+		<div class="pure-u-1">
+			<p>
+				Classical KUSC is the largest and most-listened to public radio and non-profit classical music station in the United States.
+			</p>
+
+			<p>
+				For over 70 years, KUSC has been dedicated to preserving classical music as a living and vital art, thanks to the incredible continued support of our listeners.
+			</p>
+
+			<p>
+				KUSC uses digital transmission technology to broadcast commercial-free, uninterrupted classical performances from its studio in downtown Los Angeles.
+			</p>
+
+			<p>
+				For more information, please visit KUSC's website: <a href="http://kusc.org" target="_blank">www.kusc.org</a>
+			</p>
+	
+			<h2>
+				Thank you for listening to Classical KUSC!
+			</h2>
+
+			<h4>Photographs courtesy of:</h4>
+			<div id="credits">
+				<table class="pure-table">
+					<tbody>
+						<!--
+							Javascript Generated from JSON
+						-->
+					</tbody>
+				</table>
+			</div>
+
+			<h3>Legal</h3>
+	        
+			<p>
+				<a href="http://policy.usc.edu/info-privacy/" target="_blank">Privacy Policy</a>
+			</p>
+	
+			<p>
+				<blockquote>
+					Music is a higher revelation than all wisdom and philosophy. &mdash;Ludwig van Beethoven
+				</blockquote>
+			</p>
+		</div>
+	</section>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var RAW_JSON = "https://codepen.io/chrisaiv/pen/jWggpg.js";
+		function getData( url ){
+		    $.ajax({
+		        url: url,
+		        dataType: "json",
+		        encoding:"UTF-8",
+		        success: ajaxSuccess,
+		        error: ajaxError,
+		    });
+		}
+ 
+		function ajaxError( xhrInstance, message, optional ){
+		    console.log( "ajaxError:" );
+		}
+ 
+		function ajaxSuccess( data, status ){
+			//Write your Parse XML Function
+		    parseData( data );
+		}
+ 
+		function parseData( data ){
+			//console.log(data)
+			$(data).each(function(n, value){
+				//Data
+				var author = value.author
+				var url    = value.url
+				//Structure
+				var tr     = $("<tr>")
+				var tbody  = $("tbody")
+				
+				//If there are many photos from the same author, number them.
+				if($.isArray(url)){
+					var td = $("<td>").append(author + ": ");
+					$(url).each(function(index, link){
+						var href  = $("<a>").attr( { href: link, alt: author, target: "_blank" } ).text(index + "  ")
+						td.append(href)
+					})
+					var d = $("td a:contains(,):last")
+					//d.css("border", "1px solid red")
+				} 
+				//Otherwise, simply link the author to the photo
+				else {
+					var a  = $("<a>").attr( { href: url, alt: author, target: "_blank" } ).text(author)
+					var td = $("<td>").append(a)
+				}
+				
+				//Since we want 2 x <td>'s per <tr> we need to write a special condition
+				if(n % 2 === 0){
+					tr.append(td)
+					tbody.append(tr)
+				} else {
+					var lastTR = $("tr:last-child")
+					lastTR.append(td)
+				}
+			});
+			$( "tr:odd" ).addClass("pure-table-odd")
+		}
+		getData(RAW_JSON)
+	});
+	</script>
+</body>
+</html>
